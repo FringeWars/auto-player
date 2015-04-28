@@ -9,13 +9,17 @@ module.exports = function(){
 			faction: faction,
 			minions:[],
 			units:[],
+			buildings:[],
+			stronghold : { isAlive : function(){ return true; } },
 
 			addMinion: function(minion){
 				this.minions.push(minion);
 			}
+
 		};
 		callback();
 	});
+
 
 	this.Given(/^player (\d+) has (\d+) minions$/, function (player, minions, callback) {
 		for(var i =0; i< minions; i++){

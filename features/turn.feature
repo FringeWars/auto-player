@@ -2,11 +2,9 @@ Feature: a turn is run
 
   Background: A game between Robots & Zombies
     Given player 1 is "robots"
-    And player 1 has 10 minions
     And player 1 minions move randomly
     And player 1 units move randomly
     And player 2 is "zombies"
-    And player 2 has 10 minions
     And player 2 minions move randomly
     And player 2 units move randomly
 
@@ -16,26 +14,21 @@ Feature: a turn is run
     Then the "movement" phase is reached
     And each minion must move following it's "movement" behaviour
     And each unit must move following it's "movement" behaviour
+    And the "movement" phase is finished
+    Then the "combat" phase is reached
+    And each combat it resolves
+    And the "combat" phase is finished
+    Then all strongholds are alive
+    Then the "regrouping" phase is reached
+    And each minion must move following it's "regrouping" behaviour
+    And each unit must move following it's "regrouping" behaviour
+    And the "regrouping" phase is finished
+    Then the "recruitment" phase is reached
+    And each building recruits randomly
+    And the "recruitment" phase is finished
+    Then the "building" phase is reached
+    And a random unit or minion who is in a territory with no buildings, builds a building
+    And the "building" phase is finished
+    Then the turn ends and next player starts
 
-  Scenario: Combat phase
-    When the combat phase is reached
-    Then all combats are resolved
-
-  Scenario: No space for remaining units after a combat
-    When there is no space for remaining units after a combat
-    Then attacking units with no space must return to its previous territory
-
-  Scenario: Unit recruitment
-    When the recruitment phase is reached
-    Then all buildings produces units
-    And all buildings produces minions
-
-  Scenario: Build construction
-    When the build phase is reached
-    Then one building is made in one territory
-
-  Scenario: Game ends
-    When one player destroys an enemy stronghold
-    Then the game finish
-    Then the player without stronghold looses the game
 
