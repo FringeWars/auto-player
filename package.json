@@ -1,0 +1,27 @@
+{
+  "name": "auto-player",
+  "version": "1.0.0",
+  "description": "Fringe Wars auto player",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run-script cucumber",
+    "cucumber": "node --harmony ./node_modules/cucumber/bin/cucumber.js -f pretty --tags ~@ignore",
+    "cucumber-only": "node --harmony ./node_modules/cucumber/bin/cucumber.js -f pretty --tags @only"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://luismesas@github.com/FringeWars/auto-player.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FringeWars/auto-player/issues"
+  },
+  "homepage": "https://github.com/FringeWars/auto-player",
+  "dependencies": {
+    "async": "^0.9.0",
+    "cucumber": "^0.4.8",
+    "lodash": "^3.7.0",
+    "mocha": "^2.2.4"
+  }
+}
